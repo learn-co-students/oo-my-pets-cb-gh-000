@@ -1,5 +1,5 @@
 ---
-  tags: oop, domain, tdd
+  tags: oop, tdd
   languages: ruby
 ---
 
@@ -20,4 +20,4 @@ sinatra-classic-lab-template/
 
 ## Usage
 
-The template is for labs dealing with simple object-orientation in ruby (with classes and specs). Used for labs like Playlister.
+This template is for labs dealing with simple object-orientation in ruby (with classes and specs). Used for labs like Playlister.
