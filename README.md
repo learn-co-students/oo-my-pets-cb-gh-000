@@ -1,5 +1,5 @@
 ---
-  tags: oop, tdd
+  tags: oop, template
   languages: ruby
 ---
 
