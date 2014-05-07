@@ -1,6 +1,7 @@
 ---
   tags: oop, template
   languages: ruby
+  resources: 0
 ---
 
 # Object-Oriented Lab Template
@@ -21,3 +22,5 @@ sinatra-classic-lab-template/
 ## Usage
 
 This template is for labs dealing with simple object-orientation in ruby (with classes and specs). Used for labs like Playlister.
+
+## Resources
