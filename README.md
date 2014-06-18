@@ -1,26 +1,12 @@
 ---
-  tags: oop, template
-  languages: ruby
-  resources: 0
+tags: oo, beginner
+langauges: ruby
+resources: 0
 ---
 
-# Object-Oriented Lab Template
+# My Pets
 
-## Structure 
+## Objectives
 
-```bash
-sinatra-classic-lab-template/
-├── README.md
-├── .rspec
-├── lib
-│   └── .keep
-└── spec
-    └── spec_helper.rb
+Learn how classes can interact with each other.
 
-```
-
-## Usage
-
-This template is for labs dealing with simple object-orientation in ruby (with classes and specs). Used for labs like Playlister.
-
-## Resources
