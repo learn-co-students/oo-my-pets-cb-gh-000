@@ -13,7 +13,7 @@ describe Dog do
   end
 
   it "can't change its name" do 
-    expect(dog.name = "Fido").to raise_error
+    expect { dog.name = "Fido" }.to raise_error
   end
 
   it "initializes with a nervous mood" do

@@ -18,7 +18,8 @@ describe Owner do
     expect(owner.species).to eq("human")
   end
 
-  xit "can't change its species" do 
+  it "can't change its species" do 
+    expect { owner.species = "hamster" }.to raise_error
   end
 
   it "can have a name" do

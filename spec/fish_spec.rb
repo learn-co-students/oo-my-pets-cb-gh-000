@@ -13,7 +13,7 @@ describe Fish do
   end
 
   it "can't change its name" do 
-    expect(fish.name = "Goldy").to raise_error
+    expect { fish.name = "Goldy" }.to raise_error
   end
 
   it "initializes with a nervous mood" do
