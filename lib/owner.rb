@@ -52,8 +52,8 @@ class Owner
   end
 
   def sell_pets
-    pets.each do |type, array|
-      pets = {:fishes => [], :dogs => [], :cats => []}
+    pets.each do |species, collection|
+      collection.clear
     end
   end
 
