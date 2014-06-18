@@ -6,9 +6,9 @@ describe Owner do
   end
 
   let(:owner) { Owner.new("human") }
-  let(:fish) { Fish.new("human") }
-  let(:cat) { Cat.new("human") }
-  let(:dog) { Dog.new("human") }  
+  let(:fish) { Fish.new("Nemo") }
+  let(:cat) { Cat.new("Crookshanks") }
+  let(:dog) { Dog.new("Fido") }  
 
   it "can initialize an owner" do
     expect(owner).to be_a(Owner)
