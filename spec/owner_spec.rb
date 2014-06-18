@@ -114,4 +114,14 @@ describe Owner do
     expect(counter).to eq(0)
   end
 
+  it 'can list off its pets' do 
+    owner.buy_fish("Bubbles")
+    owner.buy_fish("Nemo")
+    owner.buy_cat("Crookshanks")
+    owner.buy_dog("Fido")
+    owner.buy_dog("Snuffles")
+    owner.buy_dog("Charley")
+    expect(owner.list_pets).to eq("I have 2 fish, 3 dogs, and 1 cats.")
+  end
+
 end
