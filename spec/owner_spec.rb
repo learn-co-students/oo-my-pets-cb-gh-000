@@ -102,16 +102,19 @@ describe Owner do
     expect(fish.mood).to eq("happy")
   end 
 
-  it 'can sell all its pets' do 
-    owner.buy_fish("Bubbles")
-    owner.buy_cat("Crookshanks")
-    owner.buy_dog("Snuffles")
+  it 'can sell all its pets, which make them nervous' do 
+    bubbles = owner.buy_fish("Bubbles")[0]
+    crookshanks= owner.buy_cat("Crookshanks")[0]
+    snuffles = owner.buy_dog("Snuffles")[0]
     owner.sell_pets
     counter = 0
     owner.pets.each do |species, collection| 
       counter += collection.count
     end
     expect(counter).to eq(0)
+    expect(bubbles.mood).to eq("nervous")
+    expect(crookshanks.mood).to eq("nervous")
+    expect(snuffles.mood).to eq("nervous")
   end
 
   it 'can list off its pets' do 
