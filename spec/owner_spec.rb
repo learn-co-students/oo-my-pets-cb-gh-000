@@ -8,11 +8,23 @@ describe Owner do
   let(:owner) { Owner.new("human") }
   let(:fish) { Fish.new("human") }
   let(:cat) { Cat.new("human") }
-  let(:dog) { Dog.new("human") }  
+  let(:dog) { Dog.new("human") } 
 
-  it "can initialize an owner" do
-    expect(owner).to be_a(Owner)
-  end
+  describe 'Class methods' do
+    it "keeps track of the owners that have been created" do
+      expect(Owner.all).to include(owner)
+    end
+
+    it "can count how many owners have been created" do
+      Owner.new("human")
+      expect(Owner.count).to eq(1)
+    end
+
+    it "can reset the owners that have been created" do
+      Owner.reset_all
+      expect(Owner.count).to eq(0)
+    end
+  end 
 
   it "initializes with a species" do
     expect(owner.species).to eq("human")
@@ -20,6 +32,10 @@ describe Owner do
 
   xit "can't change its species" do 
   end
+
+  it "can say its species" do 
+    expect(owner.say_species).to eq("I am a human.")
+  end 
 
   it "can have a name" do
     owner.name = "Katie"
@@ -60,17 +76,16 @@ describe Owner do
     expect(owner.pets[:dogs]).to include(dog) 
   end
 
-  it "keeps track of the owners that have been created" do
-    expect(Owner.all).to include(owner)
+  xit "walks the dogs which makes the dogs' moods happy" do
+  end 
+
+  xit "plays with the cats which makes the cats moods happy" do
+  end 
+
+  xit "feeds the fishes which makes the fishes' moods happy" do
+  end 
+
+  xit 'can sell all its pets' do 
   end
 
-  it "can count how many owners have been created" do
-    Owner.new("human")
-    expect(Owner.count).to eq(1)
-  end
-
-  it "can reset the owners that have been created" do
-    Owner.reset_all
-    expect(Owner.count).to eq(0)
-  end
 end
