@@ -26,6 +26,10 @@ describe Owner do
     end
   end 
 
+  it "can initialize an owner" do
+    expect(owner).to be_a(Owner)
+  end
+
   it "initializes with a species" do
     expect(owner.species).to eq("human")
   end
@@ -43,7 +47,7 @@ describe Owner do
     expect(owner.name).to eq("Katie")
   end
 
-  it "is initialized with a pets attribute as a hash" do
+  it "is initialized with a pets attribute as a hash with 3 keys" do
     expect(owner.pets).to eq({:fishes => [], :dogs => [], :cats => []})
   end
 
@@ -66,27 +70,48 @@ describe Owner do
   end
 
   it 'knows about its fishes' do
-    expect(owner.pets[:fishes]).to include(fish)
+    owner.buy_fish("Bubbles")
+    expect(owner.pets[:fishes][0].name).to eq("Bubbles")
   end
 
   it 'knows about its cats' do 
-    expect(owner.pets[:cats]).to include(cat)
+    owner.buy_cat("Crookshanks")
+    expect(owner.pets[:cats][0].name).to eq("Crookshanks")
   end
 
   it 'knows about its dogs' do
-    expect(owner.pets[:dogs]).to include(dog) 
+    owner.buy_dog("Snuffles")
+    expect(owner.pets[:dogs][0].name).to eq("Snuffles") 
   end
 
-  xit "walks the dogs which makes the dogs' moods happy" do
+  it "walks the dogs which makes the dogs' moods happy" do
+    dog = owner.buy_dog("Daisy")[0]
+    owner.walk_dogs
+    expect(dog.mood).to eq("happy")
   end 
 
-  xit "plays with the cats which makes the cats moods happy" do
+  it "plays with the cats which makes the cats moods happy" do
+    cat = owner.buy_cat("Muffin")[0]
+    owner.play_with_cats
+    expect(cat.mood).to eq("happy")
   end 
 
-  xit "feeds the fishes which makes the fishes' moods happy" do
+  it "feeds the fishes which makes the fishes' moods happy" do
+    fish = owner.buy_fish("Goldie")[0]
+    owner.feed_fish
+    expect(fish.mood).to eq("happy")
   end 
 
-  xit 'can sell all its pets' do 
+  it 'can sell all its pets' do 
+    owner.buy_fish("Bubbles")
+    owner.buy_cat("Crookshanks")
+    owner.buy_dog("Snuffles")
+    owner.sell_pets
+    counter = 0
+    owner.pets.each do |species, collection| 
+      counter += collection.count
+    end
+    expect(counter).to eq(0)
   end
 
 end
