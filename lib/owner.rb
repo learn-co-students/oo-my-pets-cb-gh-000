@@ -1,11 +1,13 @@
 class Owner
   OWNERS = []
   attr_accessor :name, :pets
+  attr_reader :species
   def self.reset_all
     OWNERS.clear
   end
 
-  def initialize
+  def initialize(species)
+    @species = species
     OWNERS << self
     @pets = {:fishes => [], :dogs =>, :cats => []}
   end
@@ -43,6 +45,10 @@ class Owner
   def sell_pets
     pets.each do |type, array|
     pets = {:fishes => [], :dogs =>, :cats => []}
+  end
+
+  def say_species
+    puts "I am a #{species}."
   end
 
 end
