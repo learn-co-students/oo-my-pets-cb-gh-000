@@ -18,8 +18,7 @@ describe Owner do
     expect(owner.species).to eq("human")
   end
 
-  it "can't change its species" do 
-    expect(owner.species = "hamster").to raise_error
+  xit "can't change its species" do 
   end
 
   it "can have a name" do
@@ -28,17 +27,25 @@ describe Owner do
   end
 
   it "is initialized with a pets attribute as a hash" do
-    expect(owner.pets).to eq({:fishes => [], :dogs =>, :cats => []})
+    expect(owner.pets).to eq({:fishes => [], :dogs => [], :cats => []})
   end
 
   it 'can buy a fish' do 
-    expect(owner.)
+    expect(owner.pets[:fishes].count).to eq(0)
+    owner.buy_fish("Bubbles")
+    expect(owner.pets[:fishes].count).to eq(1)
   end
 
   it 'can buy a cat' do 
+    expect(owner.pets[:cats].count).to eq(0)
+    owner.buy_cat("Crookshanks")
+    expect(owner.pets[:cats].count).to eq(1)
   end
 
-  it 'can buy a dog' do 
+  it 'can buy a dog' do
+    expect(owner.pets[:dogs].count).to eq(0)
+    owner.buy_dog("Snuffles")
+    expect(owner.pets[:dogs].count).to eq(1)
   end
 
   it 'knows about its fishes' do
@@ -58,7 +65,7 @@ describe Owner do
   end
 
   it "can count how many owners have been created" do
-    Owner.new
+    Owner.new("human")
     expect(Owner.count).to eq(1)
   end
 
@@ -66,3 +73,4 @@ describe Owner do
     Owner.reset_all
     expect(Owner.count).to eq(0)
   end
+end
