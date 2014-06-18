@@ -6,9 +6,9 @@ describe Owner do
   end
 
   let(:owner) { Owner.new("human") }
-  let(:fish) { Fish.new("human") }
-  let(:cat) { Cat.new("human") }
-  let(:dog) { Dog.new("human") } 
+  let(:fish) { Fish.new("Nemo") }
+  let(:cat) { Cat.new("Crookshanks") }
+  let(:dog) { Dog.new("Fido") }  
 
   describe 'Class methods' do
     it "keeps track of the owners that have been created" do
@@ -30,7 +30,8 @@ describe Owner do
     expect(owner.species).to eq("human")
   end
 
-  xit "can't change its species" do 
+  it "can't change its species" do 
+    expect { owner.species = "hamster" }.to raise_error
   end
 
   it "can say its species" do 
