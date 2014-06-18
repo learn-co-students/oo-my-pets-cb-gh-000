@@ -5,9 +5,8 @@ class Owner
     OWNERS.clear
   end
 
-  def initialize(name)
+  def initialize
     OWNERS << self
-    @name = name
     @pets = {:fishes => [], :dogs =>, :cats => []}
   end
 
@@ -42,6 +41,7 @@ class Owner
   end
 
   def sell_pets
+    pets.each do |type, array|
     pets = {:fishes => [], :dogs =>, :cats => []}
   end
 
