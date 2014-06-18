@@ -58,7 +58,11 @@ class Owner
   end
 
   def say_species
-    puts "I am a #{species}."
+    "I am a #{species}."
+  end
+
+  def list_pets
+    "I have #{pets[:fishes].count} fish, #{pets[:dogs].count} dogs, and #{pets[:cats].count} cats."
   end
 
 end
