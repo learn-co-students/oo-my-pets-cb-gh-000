@@ -1,6 +1,6 @@
 ---
 tags: oo, beginner
-langauges: ruby
+languages: ruby
 resources: 1
 ---
 
