@@ -21,8 +21,8 @@ describe Fish do
   end
 
   it "can change its mood" do 
-    fish.mood = "standoffish"
-    expect(fish.mood).to eq("standoffish")
+    fish.mood = "excited"
+    expect(fish.mood).to eq("excited")
   end
   
 end

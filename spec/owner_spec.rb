@@ -85,36 +85,34 @@ describe Owner do
   end
 
   it "walks the dogs which makes the dogs' moods happy" do
-    dog = owner.buy_dog("Daisy")[0]
+    dog = Dog.new("Daisy")
+    owner.pets[:dogs] << dog
     owner.walk_dogs
     expect(dog.mood).to eq("happy")
   end 
 
   it "plays with the cats which makes the cats moods happy" do
-    cat = owner.buy_cat("Muffin")[0]
+    cat = Cat.new("Muffin")
+    owner.pets[:cats] << cat
     owner.play_with_cats
     expect(cat.mood).to eq("happy")
   end 
 
   it "feeds the fishes which makes the fishes' moods happy" do
-    fish = owner.buy_fish("Goldie")[0]
+    fish = Fish.new("Nemo")
+    owner.pets[:fishes] << fish
     owner.feed_fish
     expect(fish.mood).to eq("happy")
   end 
 
   it 'can sell all its pets, which make them nervous' do 
-    bubbles = owner.buy_fish("Bubbles")[0]
-    crookshanks= owner.buy_cat("Crookshanks")[0]
-    snuffles = owner.buy_dog("Snuffles")[0]
+    fido = Dog.new("Fido")
+    tabby = Cat.new("Tabby")
+    nemo = Fish.new("Nemo")
+    owner.pets = {:dogs => [fido, Dog.new("Daisy")], :fishes => [nemo], :cats => [Cat.new("Mittens"), tabby]}
     owner.sell_pets
-    counter = 0
-    owner.pets.each do |species, collection| 
-      counter += collection.count
-    end
-    expect(counter).to eq(0)
-    expect(bubbles.mood).to eq("nervous")
-    expect(crookshanks.mood).to eq("nervous")
-    expect(snuffles.mood).to eq("nervous")
+    owner.pets.each {|type, pets| expect(pets.empty?).to eq(true) }
+    [fido, tabby, nemo].each { |o| expect(o.mood).to eq("nervous") }
   end
 
   it 'can list off its pets' do 
