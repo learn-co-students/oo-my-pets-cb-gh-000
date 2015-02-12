@@ -1,9 +1,6 @@
 require_relative 'spec_helper.rb'
 
 describe Owner do
-  before(:each) do
-    Owner.reset_all
-  end
 
   let(:owner) { Owner.new("human") }
   let(:fish) { Fish.new("Nemo") }
@@ -109,7 +106,12 @@ describe Owner do
     fido = Dog.new("Fido")
     tabby = Cat.new("Tabby")
     nemo = Fish.new("Nemo")
-    owner.pets = {:dogs => [fido, Dog.new("Daisy")], :fishes => [nemo], :cats => [Cat.new("Mittens"), tabby]}
+    [fido, tabby, nemo].each do {|o| o.mood = "happy" }
+    owner.pets = {
+      :dogs => [fido, Dog.new("Daisy")], 
+      :fishes => [nemo], 
+      :cats => [Cat.new("Mittens"), tabby]
+    }
     owner.sell_pets
     owner.pets.each {|type, pets| expect(pets.empty?).to eq(true) }
     [fido, tabby, nemo].each { |o| expect(o.mood).to eq("nervous") }
