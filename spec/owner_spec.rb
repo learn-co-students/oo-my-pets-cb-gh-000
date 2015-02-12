@@ -12,14 +12,15 @@ describe Owner do
       expect(Owner.all).to include(owner)
     end
 
-    it "can count how many owners have been created" do
-      Owner.new("human")
-      expect(Owner.count).to eq(1)
-    end
-
     it "can reset the owners that have been created" do
       Owner.reset_all
       expect(Owner.count).to eq(0)
+    end
+
+    it "can count how many owners have been created" do
+      Owner.reset_all
+      Owner.new("human")
+      expect(Owner.count).to eq(1)
     end
   end 
 
