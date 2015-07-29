@@ -1,8 +1,4 @@
----
-tags: oo, beginner
-languages: ruby
-resources: 1
----
+
 
 # My Pets
 
