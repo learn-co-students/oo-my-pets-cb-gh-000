@@ -49,21 +49,30 @@ describe Owner do
     expect(owner.pets).to eq({:fishes => [], :dogs => [], :cats => []})
   end
 
-  it 'can buy a fish' do 
+  it 'can buy a fish that is an instance of the Fish class' do 
     expect(owner.pets[:fishes].count).to eq(0)
     owner.buy_fish("Bubbles")
+    owner.pets[:fishes].each do |fish|
+      expect(fish).to be_a(Fish)
+    end
     expect(owner.pets[:fishes].count).to eq(1)
   end
 
-  it 'can buy a cat' do 
+  it 'can buy a cat that is an instance of the Cat class' do 
     expect(owner.pets[:cats].count).to eq(0)
     owner.buy_cat("Crookshanks")
+    owner.pets[:cats].each do |cat|
+      expect(cat).to be_a(Cat)
+    end
     expect(owner.pets[:cats].count).to eq(1)
   end
 
-  it 'can buy a dog' do
+  it 'can buy a dog that is an instance of the Dog class' do
     expect(owner.pets[:dogs].count).to eq(0)
     owner.buy_dog("Snuffles")
+    owner.pets[:dogs].each do |dog|
+      expect(dog).to be_a(Dog)
+    end
     expect(owner.pets[:dogs].count).to eq(1)
   end
 
