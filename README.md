@@ -1,25 +1,32 @@
----
-tags: oo, beginner
-languages: ruby
-resources: 1
----
-
 # My Pets
 
 ## Objective
 
-Learn how classes can interact with each other.
-
-## Object Models
-
-You will be building an Owner, Fish, Dog, and Cat class. Owner will know about all its pets, be able to buy a pet, set the name of a pet (which the pet can't change, because that would be weird), change a pet's mood through walking, feeding, or playing with it, and sell all of its pets (for when it moves to that tiny NYC studio after college).
-
-We can accomplish all of this through building out methods that rely on methods like `attr_accessor` in another class.
+1. Gain a deeper understanding of object relations.
+2. Build classes that produce objects that interact with one another through associations and behavior. 
 
 ## Instructions
 
-Run the tests and build out your classes. Let the tests guide how to build your classes.
+This is a test-driven lab. User the test file and test output to understand what is being asked of you as you follow the guidelines below. 
 
-## Resources
+### Overview
 
-[Sandi Metz's Practical Object-Oriented Design in Ruby: An Agile Primer](http://books.flatironschool.com/books/102) - [Chapters 1 and 2](http://books.flatironschool.com/books/102?page=48), page 26
+You will be building an Owner, Fish, Dog, and Cat class. An owner will know about all its pets, be able to buy a pet, set the name of a pet (which the pet can't change, because that would be weird), change a pet's mood through walking, feeding, or playing with it, and sell all of its pets (for when it moves to that tiny NYC studio after college).
+
+### Part I: Object Models
+
+* Define a `Dog`, `Fish` and `Cat` class that have the attributes required by the test suite. Keep in mind, some of the attributes should be readable and writable (i.e. `attr_accessor`s), while other may need to be *just* setters (`attr_writer`) or *just* getters (`attr_reader`). The test suite will make this clear so pay attention to the test output. 
+
+
+### Part II: Object Relations
+
+* An owner should know about it pets! Instances of the `Owner` class should be initialized with an `@pets` variable, set equal to the following hash: `{fishes: [], cats: [], dogs: []}`
+* An owner should be able to buy and sell pets, and therefore alter the `@pets` hash. You will therefore need a setter and a getter method (`attr_accessor`) for `pets`.
+* When an owner buys a new pet, the `buy_``cat/dog/fish` method takes in an argument of a *name*. You must take that name and do the following: 
+  * *Make a new intance of the appropriate pet, initializing it with that name*.
+  * Associate that new pet instance to the owner by adding it to the appropriate array-value of the `@pets` hash stored in the `pets` `attr_accessor`. 
+* When an owner plays with a cat or feeds a fish or walks a dog, that pet will get happier. Remember that the `pets` method stores all of an owners pets. The `@pets` hash stored in that method is full of *instance of the `Cat`/`Dog`/`Fish` class*. That means you can call `Cat`/`Dog`/`Fish` instance methods (such at `.mood=`) on those pets. 
+
+
+These are just a few hints and guidelines to help you through this lab. This lab is extensive and challenging. Rely on the guides here, refer to the previous Code Along on object relations and **read the test output and test files**. Never forget to ask a question on Learn if you are stuck. And remember, as a programmer, your job is to *fix broken code!* Broken code is the norm, the baseline, the starting point for all of the projects you will build. Embrace it!
+
