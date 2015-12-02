@@ -30,3 +30,5 @@ You will be building an `Owner`, `Fish`, `Dog`, and `Cat` class. An owner will k
 
 These are just a few hints and guidelines to help you through this lab. This lab is extensive and challenging. Rely on the guides here, refer to the previous Code Along on object relations and **read the test output and test files**. Never forget to ask a question on Learn if you are stuck. And remember, as a programmer, your job is to *fix broken code!* Broken code is the norm, the baseline, the starting point for all of the projects you will build. Embrace it!
 
+
+<a href='https://learn.co/lessons/oo-my-pets' data-visibility='hidden'>View this lesson on Learn.co</a>
