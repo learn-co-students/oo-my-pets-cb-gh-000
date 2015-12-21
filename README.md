@@ -7,7 +7,7 @@
 
 ## Instructions
 
-This is a test-driven lab. User the test file and test output to understand what is being asked of you as you follow the guidelines below. 
+This is a test-driven lab. Use the test file and test output to understand what is being asked of you as you follow the guidelines below. 
 
 ### Overview
 
