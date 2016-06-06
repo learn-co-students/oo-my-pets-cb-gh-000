@@ -15,7 +15,7 @@ You will be building an `Owner`, `Fish`, `Dog`, and `Cat` class. An owner will k
 
 ### Part I: Object Models
 
-* Define a `Dog`, `Fish` and `Cat` class that have the attributes required by the test suite. Keep in mind, some of the attributes should be readable and writable (i.e. `attr_accessor`s), while other may need to be *just* setters (`attr_writer`) or *just* getters (`attr_reader`). The test suite will make this clear so pay attention to the test output. 
+* Define a `Dog`, `Fish` and `Cat` class that have the attributes required by the test suite. Keep in mind, some of the attributes should be readable and writable (i.e. `attr_accessor`s), while others may need to be *just* setters (`attr_writer`) or *just* getters (`attr_reader`). The test suite will make this clear so pay attention to the test output. 
 
 
 ### Part II: Object Relations
@@ -25,10 +25,10 @@ You will be building an `Owner`, `Fish`, `Dog`, and `Cat` class. An owner will k
 * When an owner buys a new pet, the `buy_``cat/dog/fish` method takes in an argument of a *name*. You must take that name and do the following: 
   * *Make a new instance of the appropriate pet, initializing it with that name*.
   * Associate that new pet instance to the owner by adding it to the appropriate array-value of the `@pets` hash stored in the `pets` `attr_accessor`. 
-* When an owner plays with a cat or feeds a fish or walks a dog, that pet will get happier. Remember that the `pets` method stores all of an owners pets. The `@pets` hash stored in that method is full of *instances of the `Cat`/`Dog`/`Fish` class*. That means you can call `Cat`/`Dog`/`Fish` instance methods (such at `.mood=`) on those pets. 
+* When an owner plays with a cat or feeds a fish or walks a dog, that pet will get happier. Remember that the `pets` method stores all of an owners pets. The `@pets` hash stored in that method is full of *instances of the `Cat`/`Dog`/`Fish` class*. That means you can call `Cat`/`Dog`/`Fish` instance methods (such as `.mood=`) on those pets. 
 
 
-These are just a few hints and guidelines to help you through this lab. This lab is extensive and challenging. Rely on the guides here, refer to the previous Code Along on object relations and **read the test output and test files**. Never forget to ask a question on Learn if you are stuck. And remember, as a programmer, your job is to *fix broken code!* Broken code is the norm, the baseline, the starting point for all of the projects you will build. Embrace it!
+These are just a few hints and guidelines to help you through this lab. This lab is extensive and challenging. Rely on the guides here, refer to the previous Code Along on object relations, and **read the test output and test files**. Never forget to ask a question on Learn if you are stuck. And remember, as a programmer, your job is to *fix broken code!* Broken code is the norm, the baseline, the starting point for all of the projects you will build. Embrace it!
 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/oo-my-pets' title='My Pets'>My Pets</a> on Learn.co and start learning to code for free.</p>
