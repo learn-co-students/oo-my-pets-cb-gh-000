@@ -1,5 +1,5 @@
 require_relative 'spec_helper.rb'
-
+__END__
 describe Cat do
 
   let(:cat) { Cat.new("crookshanks") }

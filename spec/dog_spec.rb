@@ -1,5 +1,5 @@
 require_relative 'spec_helper.rb'
-
+__END__
 describe Dog do
 
   let(:dog) { Dog.new("Daisy") }
@@ -12,7 +12,7 @@ describe Dog do
     expect(dog.name).to eq("Daisy")
   end
 
-  it "can't change its name" do 
+  it "can't change its name" do
     expect { dog.name = "Fido" }.to raise_error
   end
 
@@ -20,9 +20,9 @@ describe Dog do
     expect(dog.mood).to eq("nervous")
   end
 
-  it "can change its mood" do 
+  it "can change its mood" do
     dog.mood = "hungry"
     expect(dog.mood).to eq("hungry")
   end
-  
+
 end
