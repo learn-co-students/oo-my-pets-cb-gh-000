@@ -12,17 +12,17 @@ describe Fish do
     expect(fish.name).to eq("Nemo")
   end
 
-  it "can't change its name" do 
-    expect { fish.name = "Goldy" }.to raise_error
+  it "can't change its name" do
+    expect { fish.name = "Goldy" }.to raise_error NoMethodError
   end
 
   it "initializes with a nervous mood" do
     expect(fish.mood).to eq("nervous")
   end
 
-  it "can change its mood" do 
+  it "can change its mood" do
     fish.mood = "excited"
     expect(fish.mood).to eq("excited")
   end
-  
+
 end
