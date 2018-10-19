@@ -1,3 +1,4 @@
+=begin
 require_relative 'spec_helper.rb'
 
 describe Fish do
@@ -26,3 +27,4 @@ describe Fish do
   end
 
 end
+=end

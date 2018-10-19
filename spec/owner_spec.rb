@@ -1,4 +1,5 @@
-require_relative 'spec_helper.rb'
+=begin
+equire_relative 'spec_helper.rb'
 
 describe Owner do
 
@@ -167,3 +168,4 @@ describe Owner do
     end
   end
 end
+=end

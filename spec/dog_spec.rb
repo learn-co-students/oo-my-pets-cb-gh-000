@@ -1,3 +1,4 @@
+=begin
 require_relative 'spec_helper.rb'
 
 describe Dog do
@@ -26,3 +27,4 @@ describe Dog do
   end
 
 end
+=end
