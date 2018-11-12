@@ -8,27 +8,25 @@ describe Owner do
   let(:dog) { Dog.new("Fido") }
 
   context 'Class methods' do
-    it "keeps track of the owners that have been created" do
+    it "::all returns all instances of Owner that have been created" do
       expect(Owner.all).to include(owner)
     end
 
-    it "can count how many owners have been created" do
-      Owner.reset_all
-      Owner.new("human")
+    it "::count returns the number of owners that have been created" do
       expect(Owner.count).to eq(1)
+      Owner.new("human")
+      Owner.new("human")
+      expect(Owner.count).to eq(3)
     end
 
-    it "can reset the owners that have been created" do
+    it "::count can reset the owners that have been created" do
       Owner.reset_all
       expect(Owner.count).to eq(0)
     end
 
-    it "can initialize an owner" do
-      expect(owner).to be_a(Owner)
-    end
   end
 
-  context 'instance methods' do
+  context 'Instance methods' do
 
     describe "#species" do
       it "initializes with a species" do
