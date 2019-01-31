@@ -19,7 +19,7 @@ describe Owner do
       expect(Owner.count).to eq(3)
     end
 
-    it "::count can reset the owners that have been created" do
+    it "::reset_all can reset the owners that have been created" do
       Owner.reset_all
       expect(Owner.count).to eq(0)
     end
