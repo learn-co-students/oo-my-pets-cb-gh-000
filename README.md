@@ -37,7 +37,7 @@ moves to that tiny NYC studio after college).
   hash. You will therefore need a setter and a getter method (`attr_accessor`)
   for `pets`.
 
-- When an owner buys a new pet, the ` buy_``cat/dog/fish ` method takes in an
+- When an owner buys a new pet, the `buy_cat/buy_dog/buy_fish` methods take in an
   argument of a _name_. You must take that name and do the following:
 
   - _Make a new instance of the appropriate pet, initializing it with that name_.
