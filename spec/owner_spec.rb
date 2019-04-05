@@ -15,18 +15,18 @@ describe Owner do
 
   context 'Class methods' do
 
-    it "::all returns all instances of Owner that have been created" do
+    it ".all returns all instances of Owner that have been created" do
       expect(Owner.all).to include(@owner)
     end
 
-    it "::count returns the number of owners that have been created" do
+    it ".count returns the number of owners that have been created" do
       expect(Owner.count).to eq(1)
       Owner.new("Melanie")
       Owner.new("Ginger")
       expect(Owner.count).to eq(3)
     end
 
-    it "::reset_all can reset the owners that have been created" do
+    it ".reset_all can reset the owners that have been created" do
       Owner.reset_all
       expect(Owner.count).to eq(0)
     end

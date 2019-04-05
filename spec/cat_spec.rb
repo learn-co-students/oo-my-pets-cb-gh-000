@@ -33,5 +33,9 @@ describe Cat do
     expect(@cat.mood).to eq("playful")
   end
 
+  it "knows all the cats" do 
+    Cat.all.include?(@cat)
+  end
+
 end
 
