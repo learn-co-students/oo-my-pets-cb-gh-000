@@ -13,11 +13,12 @@ is being asked of you as you follow the guidelines below.
 
 ### Overview
 
-You will be building an `Owner`, `Bird`, `Dog`, and `Cat` class. An owner will
-know about all its pets, be able to buy a pet, set the name of a pet (which the
-pet can't change, because that would be weird), change a pet's mood through
-walking, feeding, or playing with it, and sell all of its pets (for when it
-moves to that tiny NYC studio after college).
+You will be building an `Owner`, `Dog`, and `Cat` class. An owner will
+know about all their pets, be able to buy a pet, change a pet's mood through
+walking or feeding it, and sell all of their pets (for when they
+move to that tiny NYC studio after college).
+
+A `Dog` and a `Cat` are initialized with a name and an **Owner object**
 
 ### Part I: Object Models
 
@@ -29,27 +30,16 @@ moves to that tiny NYC studio after college).
 
 ### Part II: Object Relations
 
-- An owner should know about its pets! Instances of the `Owner` class should be
-  initialized with an `@pets` variable, set equal to the following hash:
-  `{birds: [], cats: [], dogs: []}`
+- An owner should be able to buy and sell a pet, which will change the pet's mood.
 
-- An owner should be able to buy and sell pets, and therefore alter the `@pets`
-  hash. You will therefore need a setter and a getter method (`attr_accessor`)
-  for `pets`.
-
-- When an owner buys a new pet, the `buy_cat/buy_dog/buy_bird` methods **take in an
+- When an owner buys a new pet, the `buy_cat/buy_dog` methods **take in an
   argument of a _name_.** You must take that name and do the following:
 
-  - _Make a new instance of the appropriate pet, initializing it with that name_.
+  - _Make a new instance of the appropriate pet, initializing it with that name
+    and the owner who is purchasing it_.
 
-  - Associate that new pet instance to the owner by adding it to the appropriate
-    array-value of the `@pets` hash stored in the `pets` `attr_accessor`.
-
-- When an owner plays with a cat or feeds a bird or walks a dog, that pet will
-  get happier. Remember that the `pets` method stores all of an owners pets. The
-  `@pets` hash stored in that method is full of _instances of the
-  `Cat`/`Dog`/`Bird` class_. That means you can call `Cat`/`Dog`/`Bird` instance
-  methods (such as `.mood=`) on those pets.
+- An owner should have the ability to walk all their dogs or feed all their cats, which
+will change the mood of all of their pets of that type to "happy".
 
 These are just a few hints and guidelines to help you through this lab. This lab
 is extensive and challenging. Rely on the guides here, refer to the previous
