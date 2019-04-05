@@ -2,9 +2,10 @@
 
 ## Objective
 
-1.  Gain a deeper understanding of object relations.
+1.  Create associations between models.
 2.  Build classes that produce objects that interact with one another through
     associations and behavior.
+3.  Create instance and class methods
 
 ## Instructions
 
