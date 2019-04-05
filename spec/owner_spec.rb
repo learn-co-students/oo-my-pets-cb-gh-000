@@ -3,7 +3,7 @@ require_relative 'spec_helper.rb'
 describe Owner do
 
   let(:owner) { Owner.new("human") }
-  let(:fish) { Fish.new("Nemo") }
+  let(:bird) { Bird.new("Tweety") }
   let(:cat) { Cat.new("Crookshanks") }
   let(:dog) { Dog.new("Fido") }
 
@@ -54,23 +54,23 @@ describe Owner do
     describe "#pets" do
 
       it "is initialized with a pets attribute as a hash with 3 keys" do
-        expect(owner.pets).to eq({:fishes => [], :dogs => [], :cats => []})
+        expect(owner.pets).to eq({:birds => [], :dogs => [], :cats => []})
       end
     end
 
-    describe "#buy_fish" do
-      it 'can buy a fish that is an instance of the Fish class' do
-        expect(owner.pets[:fishes].count).to eq(0)
-        owner.buy_fish("Bubbles")
-        owner.pets[:fishes].each do |fish|
-          expect(fish).to be_a(Fish)
+    describe "#buy_bird" do
+      it 'can buy a bird that is an instance of the Bird class' do
+        expect(owner.pets[:birds].count).to eq(0)
+        owner.buy_bird("Polly")
+        owner.pets[:birds].each do |bird|
+          expect(bird).to be_a(Bird)
         end
-        expect(owner.pets[:fishes].count).to eq(1)
+        expect(owner.pets[:birds].count).to eq(1)
       end
 
-      it 'knows about its fishes' do
-        owner.buy_fish("Bubbles")
-        expect(owner.pets[:fishes][0].name).to eq("Bubbles")
+      it 'knows about its birds' do
+        owner.buy_bird("Polly")
+        expect(owner.pets[:birds][0].name).to eq("Polly")
       end
     end
 
@@ -126,12 +126,12 @@ describe Owner do
       end
     end
 
-    describe "#feed_fish" do
-      it "feeds the fishes which makes the fishes' moods happy" do
-        fish = Fish.new("Nemo")
-        owner.pets[:fishes] << fish
-        owner.feed_fish
-        expect(fish.mood).to eq("happy")
+    describe "#feed_bird" do
+      it "feeds the birds which makes the birds' moods happy" do
+        bird = Bird.new("Tweety")
+        owner.pets[:birds] << bird
+        owner.feed_bird
+        expect(bird.mood).to eq("happy")
       end
     end
 
@@ -139,11 +139,11 @@ describe Owner do
       it 'can sell all its pets, which make them nervous' do
         fido = Dog.new("Fido")
         tabby = Cat.new("Tabby")
-        nemo = Fish.new("Nemo")
+        nemo = Bird.new("Tweety")
         [fido, tabby, nemo].each {|o| o.mood = "happy" }
         owner.pets = {
           :dogs => [fido, Dog.new("Daisy")],
-          :fishes => [nemo],
+          :birds => [nemo],
           :cats => [Cat.new("Mittens"), tabby]
         }
         owner.sell_pets
@@ -154,13 +154,13 @@ describe Owner do
 
     describe "#list_pets" do
       it 'can list off its pets' do
-        owner.buy_fish("Bubbles")
-        owner.buy_fish("Nemo")
+        owner.buy_bird("Polly")
+        owner.buy_bird("Tweety")
         owner.buy_cat("Crookshanks")
         owner.buy_dog("Fido")
         owner.buy_dog("Snuffles")
         owner.buy_dog("Charley")
-        expect(owner.list_pets).to eq("I have 2 fish, 3 dog(s), and 1 cat(s).")
+        expect(owner.list_pets).to eq("I have 2 bird, 3 dog(s), and 1 cat(s).")
       end
     end
   end
