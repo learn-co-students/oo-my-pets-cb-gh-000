@@ -5,6 +5,11 @@ describe Dog do
   let(:timmy) {Owner.new("Timmy")}
   let(:dog) { Dog.new("Lassie", timmy) }
 
+  after do 
+    Owner.all.clear
+    Dog.all.clear
+  end
+
   it "can initialize a dog" do
     expect(dog).to be_a(Dog)
   end

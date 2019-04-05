@@ -20,7 +20,7 @@ class Owner
     end
 
     def say_species
-        "I am a #{self.species}"
+        "I am a #{self.species}."
     end
 
     def buy_cat(name)
@@ -44,11 +44,11 @@ class Owner
     end
 
     def walk_dogs
-        self.dogs.each {|dog| dog.mood == "happy"}
+        self.dogs.each {|dog| dog.mood = "happy"}
     end
 
     def feed_cats
-        self.cats.each {|cat| cat.mood == "happy"}
+        self.cats.each {|cat| cat.mood = "happy"}
     end
 
     def list_pets
@@ -67,5 +67,9 @@ class Owner
     def sell_pet(pet)
         pet.owner = nil
         pet.mood = "nervous"
+    end
+
+    def self.reset_all
+        self.all.clear
     end
 end
