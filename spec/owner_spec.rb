@@ -1,9 +1,9 @@
+require 'pry'
 require_relative 'spec_helper.rb'
 
 describe Owner do
 
-  let(:owner) { Owner.new("human") }
-  let(:bird) { Bird.new("Tweety") }
+  let(:owner) { Owner.new("Victoria") }
   let(:cat) { Cat.new("Crookshanks") }
   let(:dog) { Dog.new("Fido") }
 
@@ -13,9 +13,10 @@ describe Owner do
     end
 
     it "::count returns the number of owners that have been created" do
+      binding.pry
       expect(Owner.count).to eq(1)
-      Owner.new("human")
-      Owner.new("human")
+      Owner.new("Melanie")
+      Owner.new("Ginger")
       expect(Owner.count).to eq(3)
     end
 
@@ -51,28 +52,12 @@ describe Owner do
       end
     end
 
-    describe "#pets" do
+    # describe "#pets" do
 
-      it "is initialized with a pets attribute as a hash with 3 keys" do
-        expect(owner.pets).to eq({:birds => [], :dogs => [], :cats => []})
-      end
-    end
-
-    describe "#buy_bird" do
-      it 'can buy a bird that is an instance of the Bird class' do
-        expect(owner.pets[:birds].count).to eq(0)
-        owner.buy_bird("Polly")
-        owner.pets[:birds].each do |bird|
-          expect(bird).to be_a(Bird)
-        end
-        expect(owner.pets[:birds].count).to eq(1)
-      end
-
-      it 'knows about its birds' do
-        owner.buy_bird("Polly")
-        expect(owner.pets[:birds][0].name).to eq("Polly")
-      end
-    end
+    #   it "is initialized with a pets attribute as a hash with 3 keys" do
+    #     expect(owner.pets).to eq({:birds => [], :dogs => [], :cats => []})
+    #   end
+    # end
 
     describe "#buy_cat" do
       it 'can buy a cat that is an instance of the Cat class' do
@@ -154,13 +139,11 @@ describe Owner do
 
     describe "#list_pets" do
       it 'can list off its pets' do
-        owner.buy_bird("Polly")
-        owner.buy_bird("Tweety")
         owner.buy_cat("Crookshanks")
         owner.buy_dog("Fido")
         owner.buy_dog("Snuffles")
         owner.buy_dog("Charley")
-        expect(owner.list_pets).to eq("I have 2 bird, 3 dog(s), and 1 cat(s).")
+        expect(owner.list_pets).to eq("I have 3 dog(s), and 1 cat(s).")
       end
     end
   end

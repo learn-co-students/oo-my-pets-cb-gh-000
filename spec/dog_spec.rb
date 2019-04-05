@@ -2,14 +2,15 @@ require_relative 'spec_helper.rb'
 
 describe Dog do
 
-  let(:dog) { Dog.new("Daisy") }
+  let(:timmy) {Owner.new("Timmy")}
+  let(:dog) { Dog.new("Lassie", timmy) }
 
   it "can initialize a dog" do
     expect(dog).to be_a(Dog)
   end
 
   it "initializes with a name" do
-    expect(dog.name).to eq("Daisy")
+    expect(dog.name).to eq("Lassie")
   end
 
   it "can't change its name" do

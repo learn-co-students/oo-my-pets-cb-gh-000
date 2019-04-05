@@ -2,18 +2,19 @@ require_relative 'spec_helper.rb'
 
 describe Cat do
 
-  let(:cat) { Cat.new("crookshanks") }
+  let(:hermione) {Owner.new("Hermione")}
+  let(:cat) { Cat.new("Crookshanks", hermione) }
 
   it "can initialize a cat" do
     expect(cat).to be_a(Cat)
   end
 
   it "initializes with a name" do
-    expect(cat.name).to eq("crookshanks")
+    expect(cat.name).to eq("Crookshanks")
   end
 
   it "can't change its name" do
-    expect { cat.name = "mr. whiskers" }.to raise_error NoMethodError
+    expect { cat.name = "Mr. Whiskers" }.to raise_error NoMethodError
   end
 
   it "initializes with a nervous mood" do
