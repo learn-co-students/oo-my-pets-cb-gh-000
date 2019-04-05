@@ -4,7 +4,7 @@ describe Dog do
 
     before do
       @timmy = Owner.new("Timmy")
-      @dog = Cat.new("Lassie", @timmy)
+      @dog = Dog.new("Lassie", @timmy)
     end
 
   after do 
