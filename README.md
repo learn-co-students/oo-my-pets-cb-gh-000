@@ -13,7 +13,7 @@ is being asked of you as you follow the guidelines below.
 
 ### Overview
 
-You will be building an `Owner`, `Dog`, and `Cat` class. An owner will
+You will be building an `Owner`, `Dog`, and `Cat` class. An Owner will
 know about all their pets, be able to buy a pet, change a pet's mood through
 walking or feeding it, and sell all of their pets (for when they
 move to that tiny NYC studio after college).
