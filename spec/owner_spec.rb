@@ -61,13 +61,6 @@ describe Owner do
       end
     end
 
-    # describe "#pets" do
-
-    #   it "is initialized with a pets attribute as a hash with 3 keys" do
-    #     expect(owner.pets).to eq({:birds => [], :dogs => [], :cats => []})
-    #   end
-    # end
-
     describe "#buy_cat" do
       it 'can buy a cat that is an instance of the Cat class' do
         expect(@owner.cats.count).to eq(0)
