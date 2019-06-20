@@ -1,71 +1,75 @@
 class Owner
-  OWNERS = []
-  attr_accessor :name, :pets
-  attr_reader :species
 
-  def self.reset_all
-    OWNERS.clear
-  end
+    attr_reader :species, :name
 
-  def self.all
-    OWNERS
-  end
+    @@all = []
 
-  def self.count
-    OWNERS.size
-  end
-
-  def initialize(species)
-    @species = species
-    OWNERS << self
-    @pets = {:fishes => [], :dogs => [], :cats => []}
-  end
-
-  def buy_fish(name)
-    pets[:fishes] << Fish.new(name)
-  end
-
-  def buy_dog(name)
-    pets[:dogs] << Dog.new(name)
-  end
-
-  def buy_cat(name)
-    pets[:cats] << Cat.new(name)
-  end
-
-  def walk_dogs
-    pets[:dogs].each do |dog|
-      dog.mood = "happy"
+    def initialize(name)
+        @name = name
+        @species = "human"
+        @@all << self
     end
-  end
 
-  def play_with_cats
-    pets[:cats].each do |cat|
-      cat.mood = "happy"
+    def self.all 
+      @@all 
     end
-  end
 
-  def feed_fish
-    pets[:fishes].each do |fish|
-      fish.mood = "happy"
+    def self.count
+        self.all.length
     end
-  end
 
-  def sell_pets
-    pets.each do |species, animals|
-      animals.each do |animal|
-        animal.mood = "nervous"
-      end
-      animals.clear
+    def say_species
+        "I am a #{self.species}."
     end
-  end
 
-  def say_species
-    "I am a #{species}."
-  end
+    def buy_cat(name)
+        Cat.new(name, self)
+    end
 
-  def list_pets
-    "I have #{pets[:fishes].count} fish, #{pets[:dogs].count} dog(s), and #{pets[:cats].count} cat(s)."
-  end
+    def buy_dog(name)
+        Dog.new(name, self)
+    end
+
+    def cats
+        Cat.all.select do |cat|
+            cat.owner == self
+        end
+    end
+
+    def dogs
+        Dog.all.select do |dog|
+            dog.owner == self
+        end
+    end
+
+    def walk_dogs
+        self.dogs.each {|dog| dog.mood = "happy"}
+    end
+
+    def feed_cats
+        self.cats.each {|cat| cat.mood = "happy"}
+    end
+
+    def list_pets
+        number_of_dogs = self.dogs.count
+        number_of_cats = self.cats.count
+        return "I have #{number_of_dogs} dog(s), and #{number_of_cats} cat(s)."
+    end
+
+    def sell_pets
+        all_pets = self.cats + self.dogs
+        all_pets.each do |pet|
+            sell_pet(pet)
+        end
+    end
+
+    def sell_pet(pet)
+        pet.owner = nil
+        pet.mood = "nervous"
+    end
+
+    def self.reset_all
+        self.all.clear
+    end
 
 end
