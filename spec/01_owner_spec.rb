@@ -19,7 +19,7 @@ describe Owner do
     end
 
     describe "#species" do
-      it "initializes with a species" do
+      it "initializes with species set to human" do
         expect(@owner.species).to eq("human")
       end
 
