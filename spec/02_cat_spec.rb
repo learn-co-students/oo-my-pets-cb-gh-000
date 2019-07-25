@@ -14,6 +14,14 @@ describe Cat do
   context 'Instance methods' do
     it "initializes with a name and an Owner" do
       expect(@cat.name).to eq("Crookshanks")
+      expect(@cat.owner.name).to eq("Hermione")
+    end
+
+    it "can change its owner" do
+      new_owner =  Owner.new("Harry")
+      @cat.owner = new_owner
+
+      expect(@cat.owner.name).to eq("Harry")
     end
 
     it "can't change its name" do
@@ -33,7 +41,7 @@ describe Cat do
   describe "Class methods" do
     it "knows all the cats" do
       expect(Cat.all).to include(@cat)
-      expect(Cat.all.count).to eq(5)
+      expect(Cat.all.count).to eq(6)
     end
   end
 end
