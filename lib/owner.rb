@@ -19,29 +19,27 @@ class Owner
     end
 
     def self.count
-      @@all.size
+      self.all.size
     end
 
     def self.reset_all
-      @@all.clear
+      self.all.clear
     end
 
     def cats
-      Cat.all.collect {|cat| cat if cat.owner = self}
+      Cat.all.select {|cat| cat.owner == self}
     end
 
     def dogs
-      dogs = []
-      Dog.all.collect {|dog| dog if dog.owner = self}
-      dogs
+      Dog.all.select {|dog| dog.owner == self}
     end
 
     def buy_cat(cat)
-      Cat.all.each {|cat| cat.owner = self if cat.name == name}
+      Cat.new(cat, self)
     end
 
     def buy_dog(dog)
-      Dog.all.each {|dog| dog.owner = self if dog.name == name}
+      Dog.new(dog,self)
     end
 
     def walk_dogs
