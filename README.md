@@ -11,7 +11,7 @@
 This is a test-driven lab. Use the test file and test output to understand what
 is being asked of you as you follow the guidelines below.
 
-### Overview
+### Ovcerview
 
 You will be building an `Owner`, `Dog`, and `Cat` class. An Owner will
 know about all their pets, be able to buy a pet, change a pet's mood through
